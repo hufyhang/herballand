@@ -8,11 +8,11 @@ var AboutPane = require('./src/components.jsx').AboutPane;
 var ContactPane = require('./src/components.jsx').ContactPane;
 
 var links = [{
-  name: 'Home', component: <HomePane />
+  name: 'Home', to: '#home', component: <HomePane />
 }, {
-  name: 'About', component: <AboutPane />
+  name: 'About', to: '#about', component: <AboutPane />
 }, {
-  name: 'Contact', component: <ContactPane />
+  name: 'Find us', to: '#findus', component: <ContactPane />
 }];
 
 ReactDOM.render(
@@ -20,8 +20,27 @@ ReactDOM.render(
   document.getElementById('header')
 );
 
-ReactDOM.render(
-  <HomePane/>,
-  document.getElementById('main-container')
-);
-
+// Set up router rules.
+routie({
+  'home': function () {
+    ReactDOM.render(
+      <HomePane/>,
+      document.getElementById('main-container')
+    );
+  },
+  'about': function () {
+    ReactDOM.render(
+      <AboutPane/>,
+      document.getElementById('main-container')
+    );
+  },
+  'findus': function () {
+    ReactDOM.render(
+      <ContactPane/>,
+      document.getElementById('main-container')
+    );
+  },
+  '': function () {
+    routie('home');
+  }
+});

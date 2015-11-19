@@ -26,8 +26,6 @@ header {
   color: #f39c12;
   text-align: center;
   padding: 20px 10px;
-  border-bottom: 1px solid #CACACA;
-  box-shadow: 0 6px 10px #CACACA;
 }
 
 header #title {
@@ -59,7 +57,7 @@ header a:hover {
   padding: 20px;
   text-align: center;
   min-height: 200px;
-  height: calc(100% - 290px);
+  height: calc(100% - 260px);
   overflow: auto;
 }
 
@@ -73,11 +71,11 @@ header a:hover {
 
 footer {
   width: 100%;
-  height: 20px;
-  background: #005E19;
-  color: #e67e22;
+  height: 10px;
+  color: #000;
+  font-weight: lighter;
   text-align: center;
-  padding: 20px 10px;
+  padding: 10px 10px;
 
 }
 
@@ -88,16 +86,18 @@ footer {
 }
 
 .content-wrapper {
+  display: table;
   width: 100%;
 }
 
 .content-wrapper-left, .content-wrapper-right {
-  display: inline-block;
+  display: table-cell;
   padding: 0 15px;
-  width: calc(50% - 30px);
+  vertical-align: middle;
 }
 
 .content-wrapper-inner {
+  display: block;
   width: 100%;
   text-align: center;
 }

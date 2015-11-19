@@ -19,8 +19,9 @@ var NavHeader = React.createClass({
   },
 
   render: function () {
-    var linkNodes = this.state.links.map(function (item, index) {
-      return <a onClick={this.navigate} data-index={index}>{item.name}</a>;
+    var linkNodes = this.state.links.map(function (item) {
+      // return <a onClick={this.navigate} data-index={index}>{item.name}</a>;
+      return <a href={item.to}>{item.name}</a>;
     }.bind(this));
 
     return (
