@@ -44,3 +44,5 @@ routie({
     routie('home');
   }
 });
+
+new WOW().init();

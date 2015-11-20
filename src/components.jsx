@@ -2,9 +2,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var ABOUT = 'Established in 2001, Herbal Land is one of the most well-known traditional Chinese medicine practice in east London. Over the past decade, more than 500 patients came for consultation and treatment every month. Our principle consultant holds MSc, MRCHM, MAoR and MBRCP, and specialises in Chinese medicine, acupuncture, and reflexology.';
+var Search = require('./search.jsx');
 
-var ABOUT_INFO = <div>
+var ABOUT = 'Established in 2001, Herbal Land is one of the most well-known traditional Chinese medicine practices in east London. Over the past decade, more than 500 patients came for consultation and treatment every month. Our principle consultant holds MSc, MRCHM, MAoR and MBRCP, and specialises in Chinese medicine, acupuncture, and reflexology.';
+
+var ABOUT_INFO = <div className="withBack">
 <p><b>Address:</b></p>
 <p>48 Woodgrange Road,Forest Gate <br/>
 London, E7 0QH</p>
@@ -39,12 +41,12 @@ London, E7 0QH</p>
 </table>
 </div>;
 
-var MAP = <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1913.1691300256768!2d0.024838093759409038!3d51.54855302369516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a7a2f261eb4b%3A0x8bf2a97a2d2d7406!2sLondon+E7+0QH%2C+UK!5e0!3m2!1sen!2s!4v1447912133623" frameborder="0" style={{minHeight: '300px', width: '100%', border: 0}} allowfullscreen></iframe>;
+var MAP = <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1913.1691300256768!2d0.024838093759409038!3d51.54855302369516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a7a2f261eb4b%3A0x8bf2a97a2d2d7406!2sLondon+E7+0QH%2C+UK!5e0!3m2!1sen!2s!4v1447912133623" frameborder="0" style={{minHeight: '300px', width: '100%', border: '3px solid #fff', boxShadow: '0 0 10px #CACACA'}} allowfullscreen></iframe>;
 
 var ContentWrapper = React.createClass({
   render: function () {
     return (
-      <div>
+      <div style={this.props.styleList || {}} className="wow fadeInDown">
         <div className="content-wrapper content">
           <div className="content-wrapper-left">{this.props.leftContent}</div>
           <div className="content-wrapper-right">{this.props.rightContent}</div>
@@ -60,14 +62,14 @@ var ContentWrapper = React.createClass({
 var HomePane = React.createClass({
   render: function () {
     return (
-      <ContentWrapper>
-        <img id="logo" src="img/pic.jpg" height="200" width="200"></img>
-      </ContentWrapper>
+      <div>
+        <Search></Search>
+      </div>
       );
   }
 });
 
-var aboutNode = <p id="about" className="content">{ABOUT}</p>;
+var aboutNode = <p id="about" className="withBack content">{ABOUT}</p>;
 var imgNode = <img id="logo" src="img/pic.jpg" height="200" width="200"/>;
 var AboutPane = React.createClass({
   render: function () {
