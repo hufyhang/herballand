@@ -3,6 +3,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var SUPPORTED_AREA = ['E6', 'E7'];
+var POSTCODE_API = 'http://uk-postcodes.com/postcode/';
 
 var Search = React.createClass({
   getInitialState: function () {
@@ -65,6 +66,11 @@ var Search = React.createClass({
 });
 
 var SearchResult = React.createClass({
+  getInitialState: function () {
+    return {
+      region: ''
+    };
+  },
   render: function () {
     var alignLeft = {textAlign: 'left'};
     var tableStyle = {
