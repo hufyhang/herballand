@@ -57,6 +57,9 @@ var Search = React.createClass({
      onsite={onsite} home={home}/>;
     this.setState({result: node});
   },
+  handleFocus: function () {
+    React.findDOMNode(this.refs.textInput).style.outline = 'none';
+  },
   render: function () {
     // If UA is IE, check-btn's top should be -1px; otherwise, -2px.
     var topValue = navigator.userAgent.toLowerCase().indexOf('trident') === -1
@@ -64,7 +67,7 @@ var Search = React.createClass({
                    : '-1px';
     return (
       <div className="withBack" style={{paddingTop: '20px'}}>
-        <input ref="textInput" type="text" placeholder="Enter postcode to check our health service coverage..." style={{padding: '5px 10px', border: '2px solid #f39c12', borderRadius: '6px 0 0 6px', width: '500px', fontSize: '20px'}} onKeyPress={this.handleKeyPress} onKeyUp={this.handleKeyUp} onChange={this.handleChange} />
+        <input ref="textInput" type="text" placeholder="Enter postcode to check our health service coverage..." style={{padding: '5px 10px', border: '2px solid #f39c12', borderRadius: '6px 0 0 6px', width: '500px', fontSize: '20px'}} onKeyPress={this.handleKeyPress} onKeyUp={this.handleKeyUp} onChange={this.handleChange} onFocus={this.handleFocus} />
         <div id="check-btn" style={{cursor: 'pointer', position: 'relative', top: topValue, lineHeight: '18px', display: 'inline-block', padding: '10px 20px', background: '#f39c12', borderRadius: '0 6px 6px 0', color: '#fff'}} onClick={this.search}>Check</div>
         <div style={{color: 'red', paddingTop: '5px', fontWeight: 'normal'}}>{this.state.warning}</div>
 
