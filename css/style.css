@@ -5,6 +5,7 @@
 
 body {
   background: url("/img/background.jpg") no-repeat;
+  min-width: 600px;
 }
 
 a, a:visited {
